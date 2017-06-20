@@ -135,6 +135,11 @@ class CropIwaOverlayView extends View implements ConfigChangeListener, OnImagePo
             return;
         }
 
+        if (config.isCropMatchParent()){
+            cropRect.set(0, 0, viewWidth, viewHeight);
+            return;
+        }
+
         AspectRatio aspectRatio = getAspectRatio();
         if (aspectRatio == null) {
             return;

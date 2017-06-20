@@ -33,6 +33,8 @@
             <enum name="rectangle" value="0" />
             <enum name="oval" value="1" />
         </attr>
+        
+        <attr name="ci_crop_match_parent" format="boolean"/>
 
     </declare-styleable>
 </resources>

@@ -88,6 +88,7 @@ public class CropIwaOverlayConfig {
             c.setDynamicCrop(ta.getBoolean(
                     R.styleable.CropIwaView_ci_dynamic_aspect_ratio,
                     c.isDynamicCrop()));
+            c.setCropMatchParent(ta.getBoolean(R.styleable.CropIwaView_ci_crop_match_parent,false));
         } finally {
             ta.recycle();
         }
@@ -111,6 +112,7 @@ public class CropIwaOverlayConfig {
 
     private boolean isDynamicCrop;
     private boolean shouldDrawGrid;
+    private boolean cropMatchParent = false;
     private CropIwaShape cropShape;
 
     private List<ConfigChangeListener> listeners;
@@ -159,6 +161,15 @@ public class CropIwaOverlayConfig {
 
     public boolean shouldDrawGrid() {
         return shouldDrawGrid;
+    }
+
+    public boolean isCropMatchParent() {
+        return cropMatchParent;
+    }
+
+    public CropIwaOverlayConfig setCropMatchParent(boolean cropMatchParent) {
+        this.cropMatchParent = cropMatchParent;
+        return this;
     }
 
     public CropIwaShape getCropShape() {
