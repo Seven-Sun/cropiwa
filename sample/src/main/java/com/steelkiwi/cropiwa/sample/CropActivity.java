@@ -43,8 +43,6 @@ public class CropActivity extends AppCompatActivity {
         cropView = (CropIwaView) findViewById(R.id.crop_view);
         cropView.setImageUri(imageUri);
 
-        cropView.configureOverlay().setCropMatchParent(true).apply();
-
         MaterialPreferenceScreen cropPrefScreen = (MaterialPreferenceScreen) findViewById(R.id.crop_preference_screen);
         configurator = new CropViewConfigurator(cropView, cropPrefScreen);
         cropPrefScreen.setStorageModule(configurator);

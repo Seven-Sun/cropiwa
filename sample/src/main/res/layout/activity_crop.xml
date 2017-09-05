@@ -15,17 +15,16 @@
         <com.steelkiwi.cropiwa.CropIwaView
             android:id="@+id/crop_view"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            app:ci_dynamic_aspect_ratio="false" />
+            android:layout_height="match_parent"
+            app:ci_dynamic_aspect_ratio="false"
+            app:ci_crop_match_parent="true"/>
 
     </android.support.design.widget.AppBarLayout>
 
     <com.yarolegovich.mp.MaterialPreferenceScreen
         android:id="@+id/crop_preference_screen"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="4">
+        android:layout_height="0dp">
 
         <include layout="@layout/pref_card_crop_mode" />
 
