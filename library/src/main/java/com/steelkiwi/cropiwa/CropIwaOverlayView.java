@@ -136,7 +136,7 @@ class CropIwaOverlayView extends View implements ConfigChangeListener, OnImagePo
         }
 
         if (config.isCropMatchParent()){
-            cropRect.set(0, (viewHeight - viewWidth) / 2 , viewWidth, viewWidth);
+            cropRect.set(0, (viewHeight - viewWidth) / 2 , viewWidth, (viewHeight + viewWidth) / 2);
             return;
         }
 
