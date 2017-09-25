@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.content.LocalBroadcastManager;
 
 /**
  * @author yarolegovich
@@ -20,13 +21,13 @@ public class CropIwaResultReceiver extends BroadcastReceiver {
     public static void onCropCompleted(Context context, Uri croppedImageUri) {
         Intent intent = new Intent(ACTION_CROP_COMPLETED);
         intent.putExtra(EXTRA_URI, croppedImageUri);
-        context.sendBroadcast(intent);
+        LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
     }
 
     public static void onCropFailed(Context context, Throwable e) {
         Intent intent = new Intent(ACTION_CROP_COMPLETED);
         intent.putExtra(EXTRA_ERROR, e);
-        context.sendBroadcast(intent);
+        LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
     }
 
     private Listener listener;
@@ -45,11 +46,11 @@ public class CropIwaResultReceiver extends BroadcastReceiver {
 
     public void register(Context context) {
         IntentFilter filter = new IntentFilter(ACTION_CROP_COMPLETED);
-        context.registerReceiver(this, filter);
+        LocalBroadcastManager.getInstance(context).registerReceiver(this, filter);
     }
 
     public void unregister(Context context) {
-        context.unregisterReceiver(this);
+        LocalBroadcastManager.getInstance(context).unregisterReceiver(this);
     }
 
     public void setListener(Listener listener) {
